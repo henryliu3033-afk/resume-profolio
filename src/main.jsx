@@ -7,6 +7,7 @@ import Counter from "./counter/Counter.jsx";
 import TodoList from "./todo-list/TodoList.jsx";
 import HomePage from "./homepage.jsx";
 import WeatherHome from "./weather app/weatherHome.jsx";
+import NewsApp from "./News/NewsApp.jsx";
 
 const router = createBrowserRouter(
   [
@@ -29,6 +30,10 @@ const router = createBrowserRouter(
         {
           path: "weather",
           element: <WeatherHome />,
+        },
+        {
+          path: "news",
+          element: <NewsApp />,
         },
       ],
     },

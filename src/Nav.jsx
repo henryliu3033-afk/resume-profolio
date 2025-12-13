@@ -17,6 +17,9 @@ function Navigator() {
           <li>
             <Link to="/weather">Weather App</Link>
           </li>
+          <li>
+            <Link to="/news">News App</Link>
+          </li>
         </ul>
       </div>
     </>

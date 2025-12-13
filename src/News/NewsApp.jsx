@@ -22,7 +22,7 @@ function NewsApp() {
       const result = await response.json();
       setNews(result.articles);
     } catch (error) {
-      setError(error);
+      setError(error.msg);
     } finally {
       setLoading(false);
     }
@@ -31,25 +31,6 @@ function NewsApp() {
     fetchApi();
   }, [keyword]);
 
-  useEffect(() => {
-    fetching(keyword);
-  }, [keyword]);
-
-  async function fetching() {
-    setLoading(true);
-    try {
-      const response = await fetch(`url`);
-      if (!response.ok) {
-        throw new Error(`http:status:${response.status}`);
-      }
-      const result = await response.json();
-      setNews(result.articles);
-    } catch (error) {
-      setError(error.msg);
-    } finally {
-      setLoading(false);
-    }
-  }
   return (
     <>
       <div className=" h-screen bg-amber-200 flex justify-center items-center relative ">

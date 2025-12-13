@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useFetcher } from "react-router-dom";
 
 function NewsApp() {
   const [news, setNews] = useState([]);
@@ -6,6 +7,7 @@ function NewsApp() {
   const [error, setError] = useState("");
   const [keyword, setKeyword] = useState("");
   const [inputValue, setInputValue] = useState("");
+
   async function fetchApi(keyword) {
     setLoading(true);
     try {
@@ -25,14 +27,29 @@ function NewsApp() {
       setLoading(false);
     }
   }
+  useEffect(() => {
+    fetchApi();
+  }, [keyword]);
 
   useEffect(() => {
-    fetchApi(keyword);
+    fetching(keyword);
   }, [keyword]);
-  function handleSearch() {
-    setKeyword(inputValue);
-  }
 
+  async function fetching() {
+    setLoading(true);
+    try {
+      const response = await fetch(`url`);
+      if (!response.ok) {
+        throw new Error(`http:status:${response.status}`);
+      }
+      const result = await response.json();
+      setNews(result.articles);
+    } catch (error) {
+      setError(error.msg);
+    } finally {
+      setLoading(false);
+    }
+  }
   return (
     <>
       <div className=" h-screen bg-amber-200 flex justify-center items-center relative ">

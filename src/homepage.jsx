@@ -18,8 +18,8 @@ function HomePage() {
   };
   return (
     <>
-      <div className="h-screen bg-gray-300 flex justify-center items-center">
-        <div className=" bg-gray-400 w-[700px] h-[600px] flex flex-col justify-center items-center gap-9 relative">
+      <div className="h-screen bg-[#F3F4F6] flex justify-center items-center">
+        <div className=" bg-[#FFFFFF] w-[700px] h-[600px] flex flex-col justify-center items-center gap-9 relative">
           <div className=" absolute top-4 right-4">
             <button onClick={() => setLang(lang === "Zh" ? "en" : "Zh")}>
               {lang === "Zh" ? "English" : "繁中"}

@@ -36,7 +36,7 @@ function NewsApp() {
 
   return (
     <>
-      <div className=" h-screen bg-amber-200 flex justify-center items-center relative ">
+      <div className=" h-screen bg-[#F3F4F6] flex justify-center items-center relative ">
         <form className="absolute top-20 left-200 flex gap-7">
           <input
             type="text"

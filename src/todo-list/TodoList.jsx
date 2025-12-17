@@ -27,8 +27,8 @@ function TodoList() {
 
   return (
     <>
-      <div className="bg-violet-300 h-screen flex  justify-center items-center">
-        <div className="bg-amber-200 w-[700px] h-[900px] flex flex-col rounded-3xl justify-center items-center overflow-hidden gap-6">
+      <div className="bg-[#F3F4F6] h-screen flex  justify-center items-center">
+        <div className="bg-[#FFFFFF] w-[700px] h-[900px] flex flex-col rounded-3xl justify-center items-center overflow-hidden gap-6">
           <form onSubmit={addTodos} className="flex  gap-6">
             <input
               type="text"

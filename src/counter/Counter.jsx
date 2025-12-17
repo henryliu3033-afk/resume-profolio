@@ -15,8 +15,8 @@ function Counter() {
 
   return (
     <>
-      <div className="bg-gray-400 h-screen f flex justify-center items-center ">
-        <div className="w-[500px] h-[600px] rounded-4xl  flex flex-col justify-center items-center bg-gray-300 gap-36">
+      <div className="bg-[#F3F4F6] h-screen f flex justify-center items-center ">
+        <div className="w-[500px] h-[600px] rounded-4xl  flex flex-col justify-center items-center bg-[#FFFFFF] gap-36">
           <h1 className="text-3xl">count:{count}</h1>
           <div className="flex text-2xl gap-10">
             <button

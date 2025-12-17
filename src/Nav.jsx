@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Navigator() {
   return (
     <>
-      <div className="w-52 bg-gray-700 h-screen text-gray-300 z-50 flex justify-center sticky">
+      <div className="w-52 bg-[#1F2937] h-screen text-gray-300 z-50 flex justify-center sticky">
         <ul className=" flex flex-col justify-center items-center text-2xl gap-8">
           <li>
             <Link to="/">HOME</Link>

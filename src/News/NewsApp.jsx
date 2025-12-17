@@ -7,6 +7,9 @@ function NewsApp() {
   const [error, setError] = useState("");
   const [keyword, setKeyword] = useState("");
   const [inputValue, setInputValue] = useState("");
+  useEffect(() => {
+    fetchApi();
+  }, [keyword]);
 
   async function fetchApi(keyword) {
     setLoading(true);
@@ -27,14 +30,14 @@ function NewsApp() {
       setLoading(false);
     }
   }
-  useEffect(() => {
-    fetchApi();
-  }, [keyword]);
+  function handleSearch() {
+    setKeyword(inputValue);
+  }
 
   return (
     <>
       <div className=" h-screen bg-amber-200 flex justify-center items-center relative ">
-        <form className="absolute top-20 left-100 flex gap-7">
+        <form className="absolute top-20 left-200 flex gap-7">
           <input
             type="text"
             value={inputValue}
@@ -58,12 +61,12 @@ function NewsApp() {
             Search
           </button>
         </form>
-        <div className=" w-[1000px] h-[900px] bg-green-100 overflow-hidden  ">
+        <div className=" w-[1300px] h-[900px] bg-green-100 overflow-hidden  ">
           <div className="grid grid-cols-3 gap-8 p-6 auto-rows-fr overflow-y-auto">
             {news.map((item) => (
               <div
                 key={item.url}
-                className="bg-white rounded-xl shadow p-4 flex flex-col hover:shadow-xl transition cursor-pointer"
+                className="bg-white rounded-xl shadow p-4 flex flex-col hover:shadow-xl transition cursor-pointer "
               >
                 {item.image && (
                   <img

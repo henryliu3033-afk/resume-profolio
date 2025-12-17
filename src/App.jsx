@@ -9,7 +9,7 @@ function App() {
         <Navigator />
 
         {/* 右侧内容区（自动占满剩余空间） */}
-        <div className="flex-1 p-20">
+        <div className="flex-1 ">
           <Outlet />
         </div>
       </div>

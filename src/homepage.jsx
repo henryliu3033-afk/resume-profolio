@@ -8,12 +8,14 @@ function HomePage() {
       description: "這是虛擬的ps5網站",
       clickHere: "點擊這裡",
       fakeIrent: "這是虛擬的租車網站",
+      githun: "我的GitHub",
     },
     en: {
       welcomeTitle: "Welcome to my work-profolio",
       description: "This is a virtual PS5 website",
       clickHere: "Clickhere",
       fakeIrent: "This is fake renting car website",
+      github: "My GitHub",
     },
   };
   return (
@@ -43,6 +45,13 @@ function HomePage() {
             >
               {texts[lang].clickHere}
             </a>
+          </h2>
+          <h2 className="text-2xl flex gap-4  ">
+            {texts[lang].github}
+            <a
+              href="https://github.com/henryliu3033-afk"
+              className="text-purple-900 hover:text-green-700 "
+            ></a>
           </h2>
         </div>
       </div>

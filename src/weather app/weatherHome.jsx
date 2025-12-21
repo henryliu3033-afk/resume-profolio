@@ -46,7 +46,7 @@ function WeatherHome() {
   return (
     <>
       <div className=" h-screen bg-[#F3F4F6] flex justify-center items-center">
-        <div className="card w-[700px] h-[1100px] bg-amber-200 rounded-2xl flex flex-col gap-5">
+        <div className="card w-[700px] h-[1100px] bg[#FFFFFF] rounded-2xl flex flex-col gap-5">
           <div className="relative ">
             <div className="">
               <img src={Taiwan} alt="Taiwan" />

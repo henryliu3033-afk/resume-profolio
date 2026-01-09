@@ -8,7 +8,7 @@ function HomePage() {
       description: "這是虛擬的ps5網站",
       clickHere: "點擊這裡",
       fakeIrent: "這是虛擬的租車網站",
-      githun: "我的GitHub",
+      github: "我的GitHub",
     },
     en: {
       welcomeTitle: "Welcome to my work-profolio",
@@ -51,7 +51,9 @@ function HomePage() {
             <a
               href="https://github.com/henryliu3033-afk"
               className="text-purple-900 hover:text-green-700 "
-            ></a>
+            >
+              {texts[lang].clickHere}
+            </a>
           </h2>
         </div>
       </div>

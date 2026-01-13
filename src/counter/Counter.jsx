@@ -15,31 +15,43 @@ function Counter() {
 
   return (
     <>
-      <div className="bg-[#F3F4F6] h-screen f flex justify-center items-center ">
-        <div className="w-[500px] h-[600px] rounded-4xl  flex flex-col justify-center items-center bg-[#FFFFFF] gap-36">
-          <h1 className="text-3xl">count:{count}</h1>
-          <div className="flex text-2xl gap-10">
+      <div className="flex justify-center">
+        <div className="w-full max-w-md bg-white rounded-2xl shadow-md p-10 text-center">
+          {/* Header */}
+          <h1 className="text-2xl font-semibold mb-8">Counter</h1>
+
+          {/* Count Display */}
+          <div className="text-6xl font-bold text-slate-800 mb-10">{count}</div>
+
+          {/* Controls */}
+          <div className="flex justify-center items-center gap-6">
+            {/* Decrement */}
             <button
-              className="border w-19 rounded-2xl bg-gray-100 cursor-pointer transition hover:-translate-y-1 hover:bg-green-500"
-              onClick={handleIncrement}
+              onClick={handleDecrement}
+              className="w-14 h-14 rounded-xl border text-2xl hover:bg-slate-100 transition"
             >
-              +1
+              −
             </button>
+
+            {/* Reset */}
             <button
               onClick={handleReset}
-              className="border w-28 rounded-2xl cursor-pointer transition hover:-translate-y-1 hover:bg-blue-700"
+              className="px-6 py-3 rounded-xl bg-indigo-500 text-white font-medium hover:bg-indigo-600 transition"
             >
-              reset
+              Reset
             </button>
+
+            {/* Increment */}
             <button
-              className="border w-19 rounded-2xl bg-gray-400 cursor-pointer transition hover:-translate-y-1 hover:bg-red-500"
-              onClick={handleDecrement}
+              onClick={handleIncrement}
+              className="w-14 h-14 rounded-xl border text-2xl hover:bg-slate-100 transition"
             >
-              -1
+              +
             </button>
           </div>
         </div>
       </div>
+      );
     </>
   );
 }

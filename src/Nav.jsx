@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 function Navigator() {
   return (
     <>
-      <div className="w-52 bg-[#1F2937] h-screen text-gray-300 z-50 flex justify-center sticky">
-        <ul className=" flex flex-col justify-center items-center text-2xl gap-8">
+      <div className="w-56 bg-slate-900 text-slate-200 h-screen sticky top-0">
+        <ul className="flex flex-col gap-6 px-6 pt-10 text-lg">
           <li>
             <Link to="/">HOME</Link>
           </li>

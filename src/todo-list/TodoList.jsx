@@ -27,43 +27,58 @@ function TodoList() {
 
   return (
     <>
-      <div className="bg-[#F3F4F6] h-screen flex  justify-center items-center">
-        <div className="bg-[#FFFFFF] w-[700px] h-[900px] flex flex-col rounded-3xl justify-center items-center overflow-hidden gap-6">
-          <form onSubmit={addTodos} className="flex  gap-6">
+      <div className="flex justify-center">
+        <div className="w-full max-w-md bg-white rounded-2xl shadow-md p-8">
+          {/* Header */}
+          <h1 className="text-2xl font-semibold mb-6 text-center">Todo List</h1>
+
+          {/* Input */}
+          <form onSubmit={addTodos} className="flex gap-3 mb-6">
             <input
               type="text"
-              placeholder="type your todo..."
+              placeholder="Add a new task..."
               value={text}
               onChange={(e) => setText(e.target.value)}
-              className="border w-80 overflow-hidden bg-white"
+              className="flex-1 border rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"
             />
             <button
               type="submit"
-              className=" rounded-2xl w-16 bg-green-300 font-bold"
+              className="bg-indigo-500 text-white px-4 rounded-xl hover:bg-indigo-600 transition"
             >
               Add
             </button>
           </form>
-          <ul className="">
+
+          {/* List */}
+          <ul className="space-y-3">
             {todos.map((todo) => (
-              <li key={todo.id} className="flex gap-6">
+              <li
+                key={todo.id}
+                className="flex items-center justify-between bg-slate-50 rounded-xl px-4 py-3"
+              >
                 <span
                   onClick={() => toggleTodo(todo.id)}
-                  className="w-60 text-xl"
+                  className={`cursor-pointer ${
+                    todo.completed
+                      ? "line-through text-slate-400"
+                      : "text-slate-700"
+                  }`}
                 >
                   {todo.title}
                 </span>
+
                 <button
                   onClick={() => removeTodo(todo.id)}
-                  className="w-20 rounded-2xl bg-red-500 font-semibold"
+                  className="text-red-500 hover:text-red-600 text-sm"
                 >
-                  delete
+                  Delete
                 </button>
               </li>
             ))}
           </ul>
         </div>
       </div>
+      );
     </>
   );
 }

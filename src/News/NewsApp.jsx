@@ -36,59 +36,63 @@ function NewsApp() {
 
   return (
     <>
-      <div className=" h-screen bg-[#F3F4F6] flex justify-center items-center relative ">
-        <form className="absolute top-20 left-200 flex gap-7">
-          <input
-            type="text"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            placeholder="Search for News.."
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                e.preventDefault();
-
-                setKeyword(inputValue);
-              }
+      <div className="flex justify-center">
+        <div className="w-full max-w-6xl bg-white rounded-2xl shadow-md p-8">
+          {/* 🔍 Search Header */}
+          <form
+            className="flex gap-4 mb-8"
+            onSubmit={(e) => {
+              e.preventDefault();
+              setKeyword(inputValue);
             }}
-            className="w-xl h-[30px] border bg-white"
-          />
-          <button
-            type="submit"
-            onClick={handleSearch}
-            className="bg-green-400 w-28 rounded-2xl cursor-pointer"
-            onSubmit={(e) => e.preventDefault()}
           >
-            Search
-          </button>
-        </form>
-        <div className=" w-[1300px] h-[900px] bg-green-100 overflow-hidden  ">
-          <div className="grid grid-cols-3 gap-8 p-6 auto-rows-fr overflow-y-auto">
+            <input
+              type="text"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              placeholder="Search for news..."
+              className="flex-1 border rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            />
+            <button
+              type="submit"
+              className="bg-indigo-500 text-white px-6 rounded-xl hover:bg-indigo-600 transition"
+            >
+              Search
+            </button>
+          </form>
+
+          {/* 📰 Content */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {news.map((item) => (
               <div
                 key={item.url}
-                className="bg-white rounded-xl shadow p-4 flex flex-col hover:shadow-xl transition cursor-pointer "
+                className="bg-slate-50 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition cursor-pointer flex flex-col"
               >
                 {item.image && (
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-40 object-cover rounded-md mb-3"
+                    className="h-40 w-full object-cover"
                   />
                 )}
-                <h1 className="font-bold text-lg line-clamp-2 mb-2">
-                  {item.title}
-                </h1>
-                <p className="text-gray-600 text-sm line-clamp-3 grow">
-                  {item.description}
-                </p>
-                <div className="text-xs text-gray-400 mt-3">
-                  {item.source?.name}
+
+                <div className="p-4 flex flex-col flex-1">
+                  <h2 className="font-semibold text-lg line-clamp-2 mb-2">
+                    {item.title}
+                  </h2>
+                  <p className="text-sm text-slate-600 line-clamp-3 flex-1">
+                    {item.description}
+                  </p>
+                  <span className="text-xs text-slate-400 mt-4">
+                    {item.source?.name}
+                  </span>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </div>
+      );
     </>
   );
 }

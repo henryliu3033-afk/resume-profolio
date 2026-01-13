@@ -45,49 +45,63 @@ function WeatherHome() {
 
   return (
     <>
-      <div className=" h-screen bg-[#F3F4F6] flex justify-center items-center">
-        <div className="card w-[700px] h-[1100px] bg[#FFFFFF] rounded-2xl flex flex-col gap-5 bg-gray-300">
-          <div className="relative ">
-            <div className="">
-              <img src={Taiwan} alt="Taiwan" />
-            </div>
+      return (
+      <div className="flex justify-center">
+        <div className="w-full max-w-4xl bg-white rounded-2xl shadow-md p-8">
+          {/* 🌦 Header */}
+          <div className="flex items-center justify-between mb-6">
+            <h1 className="text-2xl font-semibold">Taiwan Weather</h1>
+
+            <select
+              value={select}
+              onChange={handleSelect}
+              className="border rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            >
+              {Object.keys(Coordinates).map((city) => (
+                <option key={city} value={city}>
+                  {city}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* 🗺 Map */}
+          <div className="relative flex justify-center mb-8">
+            <img src={Taiwan} alt="Taiwan Map" className="w-100" />
 
             <img
               src={Ping}
               alt="ping"
-              className="absolute w-15"
+              className="absolute w-6"
               style={{
                 left: Coordinates[select].X,
                 top: Coordinates[select].Y,
               }}
             />
           </div>
-          <div className="flex justify-around text-center items text-2xl ">
-            <div>
-              <select
-                value={select}
-                onChange={handleSelect}
-                name="city"
-                id="Cites"
-              >
-                {Object.keys(Coordinates).map((city) => (
-                  <option key={city} value={city}>
-                    {city}
-                  </option>
-                ))}
-              </select>
-            </div>
-            {data && (
-              <>
-                <h1>Weather:{data.weather[0].main}</h1>
 
-                <h2>Humidity:{data.main.humidity}%</h2>
-                <h3>Wind Speed:{data.wind.speed}</h3>
-              </>
-            )}
-          </div>
+          {/* 📊 Weather Info */}
+          {data && (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+              <div className="bg-slate-50 rounded-xl p-4 shadow-sm">
+                <p className="text-slate-500 text-sm mb-1">Weather</p>
+                <p className="text-xl font-semibold">{data.weather[0].main}</p>
+              </div>
+
+              <div className="bg-slate-50 rounded-xl p-4 shadow-sm">
+                <p className="text-slate-500 text-sm mb-1">Humidity</p>
+                <p className="text-xl font-semibold">{data.main.humidity}%</p>
+              </div>
+
+              <div className="bg-slate-50 rounded-xl p-4 shadow-sm">
+                <p className="text-slate-500 text-sm mb-1">Wind Speed</p>
+                <p className="text-xl font-semibold">{data.wind.speed} m/s</p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
+      );
     </>
   );
 }

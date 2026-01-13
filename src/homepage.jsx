@@ -20,43 +20,84 @@ function HomePage() {
   };
   return (
     <>
-      <div className="h-screen bg-[#F3F4F6] flex justify-center items-center">
-        <div className=" bg-[#FFFFFF] w-[700px] h-[600px] flex flex-col justify-center items-center gap-9 relative">
-          <div className=" absolute top-4 right-4">
-            <button onClick={() => setLang(lang === "Zh" ? "en" : "Zh")}>
-              {lang === "Zh" ? "English" : "繁中"}
+      <div className="flex justify-center">
+        <div className="w-full max-w-4xl bg-white rounded-2xl shadow-md p-10">
+          {/* 🌐 Language Switch */}
+          <div className="flex justify-end mb-6">
+            <button
+              onClick={() => setLang(lang === "Zh" ? "en" : "Zh")}
+              className="text-sm text-slate-500 hover:text-indigo-500 transition"
+            >
+              {lang === "Zh" ? "English" : "繁體中文"}
             </button>
           </div>
-          <h1 className="text-2xl font-bold">{texts[lang].welcomeTitle}</h1>
-          <h2 className="text-2xl flex gap-4  ">
-            {texts[lang].description}
+
+          {/* 🧑‍💻 Hero */}
+          <div className="text-center mb-12">
+            <h1 className="text-3xl font-bold mb-4">
+              {texts[lang].welcomeTitle}
+            </h1>
+            <p className="text-slate-600 text-lg max-w-xl mx-auto">
+              {lang === "Zh"
+                ? "這是一個集合多個前端練習作品的工具型應用，展示我在 React、UI 設計與資料處理上的能力。"
+                : "This is a collection of front-end practice projects, showcasing my skills in React, UI design, and data handling."}
+            </p>
+          </div>
+
+          {/* 📦 Projects */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* PS5 */}
             <a
               href="https://fake-ps5-webpage-wire.vercel.app/"
-              className="text-purple-900 hover:text-green-700 "
+              target="_blank"
+              className="group bg-slate-50 rounded-xl p-6 hover:shadow-lg transition"
             >
-              {texts[lang].clickHere}
+              <h2 className="text-xl font-semibold mb-2 group-hover:text-indigo-500">
+                PS5 Virtual Website
+              </h2>
+              <p className="text-slate-600 mb-4">{texts[lang].description}</p>
+              <span className="text-indigo-500 text-sm">
+                {texts[lang].clickHere} →
+              </span>
             </a>
-          </h2>
-          <h2 className="text-2xl flex gap-4  ">
-            {texts[lang].fakeIrent}
+
+            {/* Rent Car */}
             <a
-              href="https://rent-car-project-gpq3.vercel.app//"
-              className="text-purple-900 hover:text-green-700 "
+              href="https://rent-car-project-gpq3.vercel.app/"
+              target="_blank"
+              className="group bg-slate-50 rounded-xl p-6 hover:shadow-lg transition"
             >
-              {texts[lang].clickHere}
+              <h2 className="text-xl font-semibold mb-2 group-hover:text-indigo-500">
+                Rent Car Website
+              </h2>
+              <p className="text-slate-600 mb-4">{texts[lang].fakeIrent}</p>
+              <span className="text-indigo-500 text-sm">
+                {texts[lang].clickHere} →
+              </span>
             </a>
-          </h2>
-          <h2 className="text-2xl flex gap-4  ">
-            {texts[lang].github}
+
+            {/* GitHub */}
             <a
               href="https://github.com/henryliu3033-afk"
-              className="text-purple-900 hover:text-green-700 "
+              target="_blank"
+              className="group bg-slate-50 rounded-xl p-6 hover:shadow-lg transition md:col-span-2"
             >
-              {texts[lang].clickHere}
+              <h2 className="text-xl font-semibold mb-2 group-hover:text-indigo-500">
+                GitHub
+              </h2>
+              <p className="text-slate-600 mb-4">
+                {lang === "Zh"
+                  ? "查看所有專案原始碼與開發紀錄"
+                  : "View all source code and development history"}
+              </p>
+              <span className="text-indigo-500 text-sm">
+                {texts[lang].clickHere} →
+              </span>
             </a>
-          </h2>
+          </div>
         </div>
       </div>
+      );
     </>
   );
 }

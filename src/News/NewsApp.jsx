@@ -38,7 +38,6 @@ function NewsApp() {
     <>
       <div className="flex justify-center">
         <div className="w-full max-w-6xl bg-white rounded-2xl shadow-md p-8">
-          {/* 🔍 Search Header */}
           <form
             className="flex gap-4 mb-8"
             onSubmit={(e) => {
@@ -92,7 +91,6 @@ function NewsApp() {
           </div>
         </div>
       </div>
-      );
     </>
   );
 }

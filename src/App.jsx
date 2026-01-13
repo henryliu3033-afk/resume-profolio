@@ -4,7 +4,7 @@ import Navigator from "./Nav.jsx";
 function App() {
   return (
     <>
-      <div className="flex bg-slate-100 min-h-screen">
+      <div className="flex bg-slate-100  md:p-8 lg:p-10">
         {/* 左侧固定导航栏 */}
         <Navigator />
 

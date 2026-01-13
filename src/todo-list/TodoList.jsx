@@ -78,7 +78,6 @@ function TodoList() {
           </ul>
         </div>
       </div>
-      );
     </>
   );
 }

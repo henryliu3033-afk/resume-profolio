@@ -4,12 +4,12 @@ import React, { useState, useEffect } from "react";
 
 function WeatherHome() {
   const Coordinates = {
-    Taipei: { X: "77%", Y: "5%" },
+    Taipei: { X: "64%", Y: "6%" },
     Taichung: { X: "50%", Y: "28%" },
-    Taoyuan: { X: "65%", Y: "6%" },
-    Tainan: { X: "36%", Y: "55%" },
-    Hualien: { X: "73%", Y: "35%" },
-    Taidong: { X: "60%", Y: "58%" },
+    Taoyuan: { X: "58%", Y: "8%" },
+    Tainan: { X: "45%", Y: "55%" },
+    Hualien: { X: "63%", Y: "35%" },
+    Taidong: { X: "55%", Y: "60%" },
     Nantou: { X: "55%", Y: "35%" },
   };
   const [select, setSelect] = useState("Taipei");
@@ -45,7 +45,6 @@ function WeatherHome() {
 
   return (
     <>
-      return (
       <div className="flex justify-center">
         <div className="w-full max-w-4xl bg-white rounded-2xl shadow-md p-8">
           {/* 🌦 Header */}

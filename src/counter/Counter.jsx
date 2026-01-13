@@ -28,15 +28,15 @@ function Counter() {
             {/* Decrement */}
             <button
               onClick={handleDecrement}
-              className="w-14 h-14 rounded-xl border text-2xl hover:bg-slate-100 transition"
+              className="w-14 h-14 rounded-xl border text-2xl hover:bg-slate-100 transition cursor-pointer"
             >
-              −
+              -
             </button>
 
             {/* Reset */}
             <button
               onClick={handleReset}
-              className="px-6 py-3 rounded-xl bg-indigo-500 text-white font-medium hover:bg-indigo-600 transition"
+              className="px-6 py-3 rounded-xl bg-indigo-500 text-white font-medium hover:bg-indigo-600 transition cursor-pointer"
             >
               Reset
             </button>
@@ -44,7 +44,7 @@ function Counter() {
             {/* Increment */}
             <button
               onClick={handleIncrement}
-              className="w-14 h-14 rounded-xl border text-2xl hover:bg-slate-100 transition"
+              className="w-14 h-14 rounded-xl border text-2xl hover:bg-slate-100 transition cursor-pointer"
             >
               +
             </button>

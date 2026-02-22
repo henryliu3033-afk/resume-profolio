@@ -1,0 +1,583 @@
+/* Global dark theme polish */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: #2d3748 transparent;
+}
+
+/* ✅ FIX 1: body was flex-direction: row — broke entire page layout */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgb(183, 230, 230);
+  color: white;
+  display: block; /* was: display:flex; flex-direction:row */
+}
+
+/* === NAVBAR === */
+.navbar {
+  position: fixed;
+  text-decoration: none;
+  background-color: brown;
+  width: 100%;
+  height: 60px;
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 15px;
+  align-items: center;
+  z-index: 1000;
+  /* removed overflow:hidden — was clipping dropdown on mobile */
+}
+
+.header-logo {
+  font-size: 2rem; /* was 3rem — too big, crowded the nav */
+  font-weight: 600;
+  color: white;
+}
+.header-logo a {
+  text-decoration: none;
+  color: white;
+}
+.header-logo a:hover {
+  color: #ccc;
+}
+
+/* Nav links */
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+li {
+  list-style: none;
+  display: inline-block;
+  margin: 0 8px;
+  padding: 10px;
+}
+li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.1rem; /* was 1.6rem — too large */
+}
+li a:hover {
+  color: #ccc;
+  transition: all 0.3s ease;
+}
+
+/* Auth buttons */
+.signIn,
+.signUp {
+  border: none;
+  padding: 6px 16px;
+  background-color: gold;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.btn {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* ✅ Hamburger button — hidden on desktop */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 5px;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Mobile dropdown menu */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  background-color: brown;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  z-index: 999;
+}
+.mobile-menu.open {
+  display: flex;
+}
+.mobile-menu li {
+  display: block;
+  margin: 10px 0;
+  padding: 5px;
+  text-align: center;
+}
+.mobile-menu li a {
+  font-size: 1.3rem;
+}
+.mobile-menu .btn {
+  margin-top: 15px;
+}
+
+/* === HERO SECTION === */
+
+/* Desktop: full viewport, content overlaid on image */
+.hero-section {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding-top: 60px; /* offset for fixed navbar */
+}
+.hero-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  text-align: center;
+  background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 60%);
+}
+
+.hero-section h1 {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  animation: FadeInUp 1s ease 0.6s both;
+}
+
+.discount {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 600;
+  color: gold;
+  max-width: 100%;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  animation: FadeInUp 1s ease 0.6s both;
+}
+
+.content button {
+  border: none;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-radius: 10px;
+  background-color: rgb(255, 223, 40);
+  padding: 10px 30px;
+  min-width: 140px;
+  animation: fadeInUp 1s ease 0.8s both;
+}
+.content button:hover {
+  color: #443f3f;
+  cursor: pointer;
+  transform: translateY(-3px);
+}
+.content p {
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  font-weight: 400;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+}
+
+/* === CARDS === */
+.card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, rgb(249, 253, 26), rgb(255, 101, 101));
+  color: black;
+  overflow: hidden;
+}
+.card img {
+  width: 100%;
+  height: 250px; /* give images a consistent height */
+  object-fit: cover;
+}
+.card-content {
+  padding: 15px;
+  text-align: center;
+}
+.card-content h2 {
+  font-size: clamp(1rem, 2.5vw, 1.7rem);
+}
+.card p {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.card:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+  transition: all 0.3s ease;
+}
+.card-content span {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 600;
+  background: linear-gradient(
+    to right,
+    #ff2d2d,
+    rgb(95, 63, 63),
+    rgb(155, 55, 55),
+    rgb(241, 6, 6)
+  );
+  background-size: 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animate-gradient 2.5s linear infinite;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* === RESERVATION === */
+/* ✅ FIX 5: height:100px with no flex-wrap — content overflows on mobile */
+.reservation-content {
+  display: flex;
+  flex-wrap: wrap; /* allow wrapping */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  min-height: 100px; /* min-height instead of fixed height */
+  height: auto;
+  padding: 15px 10px;
+  gap: 8px;
+  background: rgb(240, 75, 75);
+}
+.reservation-content label {
+  margin: 5px;
+  padding: 8px;
+  font-size: 1.1rem;
+}
+.reservation-content input {
+  font-size: 1rem;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: none;
+}
+.reservation-content select {
+  font-size: 1rem;
+  margin: 5px;
+  padding: 6px;
+  border-radius: 6px;
+}
+.reservation-content button {
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(255, 223, 40);
+}
+.reservation-content button:hover {
+  cursor: pointer;
+  transform: translateY(-3px);
+}
+
+/* === ABOUT === */
+/* ✅ FIX 7: height: 7% — % height only works with a defined parent height, section collapsed */
+.aboutUs {
+  background-color: rgb(180, 41, 41);
+  width: 100%;
+  height: auto; /* was: height: 7% — broken */
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+.aboutUs p {
+  max-width: 800px;
+  line-height: 1.8;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+}
+.aboutUs h1 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin-bottom: 20px;
+}
+.aboutUs h2 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin: 10px 0 5px;
+}
+.aboutUs span {
+  font-size: 1.2rem;
+  color: gold;
+}
+.aboutUs img {
+  aspect-ratio: 16/9;
+  width: 300px;
+  position: absolute;
+  opacity: 0;
+  overflow: hidden;
+  animation: fadeIn 1.4s ease-out forwards;
+}
+.top-left  { top: 10px; left: 10px; animation-delay: 0.2s; }
+.top-right  { top: 10px; right: 10px; animation-delay: 0.4s; }
+.bottom-left { bottom: 10px; left: 10px; animation-delay: 0.6s; }
+.bottom-right { bottom: 10px; right: 10px; animation-delay: 0.8s; }
+
+/* === CAR BRANDS === */
+.carBrands h1 {
+  background: #443f3f;
+  text-align: center;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  padding: 30px;
+}
+.carBrands-logo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  transition: opacity 0.5s ease;
+}
+.carBrands-logo img {
+  aspect-ratio: 1/1;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  background: linear-gradient(
+    -45deg,
+    rgba(69, 70, 64, 0.3),
+    rgb(71, 77, 78),
+    rgba(157, 158, 146, 0.3),
+    rgb(106, 115, 117)
+  );
+  border: 1px solid #000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  background-size: 400% 400%;
+  animation: animate-gradient2 10s linear infinite;
+  padding: 12px;
+}
+.brands {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.brands:hover {
+  transform: scale(1.01);
+}
+.brands:hover .brand-logo {
+  opacity: 0.1;
+}
+.models img {
+  width: 50%;
+  object-fit: fill;
+  height: auto;
+  position: absolute;
+  opacity: 0;
+  transform: translate(0, 0);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Model hover animations */
+.model-top-left { top: 0; left: 0; transform: translate(-50px, -50px); }
+.brands:hover .model-top-left { transform: translate(0, 0); opacity: 1; }
+
+.model-top-right { top: 0; right: 0; transform: translate(50px, -50px); }
+.brands:hover .model-top-right { transform: translate(0, 0); opacity: 1; }
+
+.model-bottom-left { bottom: 0; left: 0; transform: translate(-50px, 50px); }
+.brands:hover .model-bottom-left { transform: translate(0, 0); opacity: 1; }
+
+.model-bottom-right { bottom: 0; right: 0; transform: translate(50px, 50px); }
+.brands:hover .model-bottom-right { transform: translate(0, 0); opacity: 1; }
+
+.brands .models img {
+  transition-delay: 0s;
+}
+
+/* === FOOTER === */
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 30px 20px;
+  background-color: brown;
+  text-align: center;
+}
+footer label {
+  font-size: 1.1rem;
+}
+footer button {
+  border: none;
+  padding: 6px 20px;
+  height: 34px;
+  background-color: gold;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+/* ✅ FIX 6: width: 300px on small screens would overflow */
+footer input {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  width: min(300px, 85vw); /* 300px max, but shrinks on small screens */
+  height: 34px;
+  font-size: 1rem;
+}
+footer p {
+  font-size: 0.95rem;
+}
+
+/* === KEYFRAMES === */
+@keyframes fadeIn {
+  0%   { opacity: 0; transform: scale(0.85); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes animate-gradient2 {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 100%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes animate-gradient {
+  to { background-position: 200%; }
+}
+@keyframes FadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+/* ✅ FIX 8: Was `@media (max-width: 768px), (max-width: 1024px)`
+   The comma creates two separate rules — the 1024px one
+   always wins, making it apply to ALL screens ≤ 1024px
+   (including tablets). Fixed by using a single breakpoint. */
+
+/* --- Tablet (769px – 1024px) --- */
+@media (max-width: 1024px) {
+  .models img {
+    display: none; /* hide hover car models on tablet */
+  }
+  .brands img.brand-logo {
+    width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+/* --- Mobile (≤ 768px) --- */
+@media (max-width: 768px) {
+
+  /* ✅ HERO: switch from overlay → stacked layout on mobile */
+  .hero-section {
+    height: auto;           /* no longer full viewport height */
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px;
+  }
+  .hero-section img {
+    width: 100%;
+    height: 220px;          /* fixed image height on mobile */
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  .content {
+    position: relative;     /* leave the absolute overlay, sit below image */
+    top: auto;
+    background: linear-gradient(135deg, rgb(180, 41, 41), rgb(100, 20, 20));
+    padding: 28px 20px;
+    text-align: center;
+  }
+  .hero-section h1 {
+    font-size: 1.4rem;
+  }
+  .discount {
+    font-size: 2rem;
+    display: block;
+  }
+  .content p {
+    font-size: 0.95rem;
+    margin-top: 8px;
+  }
+  .content button {
+    font-size: 1rem;
+    padding: 10px 28px;
+    margin-top: 14px;
+  }
+
+  /* Cards go single column */
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  /* Brand logos go single column */
+  .carBrands-logo {
+    grid-template-columns: 1fr;
+  }
+
+  /* Hide hover car models */
+  .models img {
+    display: none;
+  }
+  .brands img.brand-logo {
+    width: 70%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Reservation wraps nicely */
+  .reservation-content {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
+
+  /* Hero text smaller */
+  .hero-section h1 {
+    font-size: 1.5rem;
+  }
+  .discount {
+    font-size: 2rem;
+  }
+}
+
+/* --- Small mobile (≤ 500px) --- */
+@media (max-width: 500px) {
+  /* ✅ FIX 9: Nav links hidden → show hamburger menu instead */
+  .nav-links {
+    display: none; /* hide desktop nav */
+  }
+  .hamburger {
+    display: flex; /* show hamburger button */
+  }
+  .btn {
+    display: none; /* hide desktop buttons (shown in mobile menu) */
+  }
+
+  .header-logo {
+    font-size: 1.6rem;
+  }
+}

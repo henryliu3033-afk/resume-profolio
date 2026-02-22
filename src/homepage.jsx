@@ -106,7 +106,7 @@ function HomePage() {
             target="_blank"
             rel="noreferrer"
             className={`
-              group relative rounded-2xl p-6 border bg-gradient-to-br
+              group relative rounded-2xl p-6 border bg-linear-to-br
               ${p.color} ${p.border}
               hover:scale-[1.02] hover:border-opacity-50
               transition-all duration-300 cursor-pointer
